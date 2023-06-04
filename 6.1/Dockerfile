@@ -62,6 +62,7 @@ RUN set -eux \
   && gpg --batch --keyserver keyserver.ubuntu.com --recv-keys 0E163286C20D07B9787EBE9FD7F9D0414FD08104 \
   && wget https://github.com/taotao2008/wxai-server-package/raw/wali/server/6.1.8/bundle-6.1.8.tar.gz -O  rocket.chat.tgz \
   && wget "https://github.com/taotao2008/wxai-server-package/blob/wali/server/6.1.8/bundle-6.1.8.tar.gz.md5" -O rocket.chat.tgz.md5 \
+  && cat rocket.chat.tgz.md5 \
   && md5sum -c rocket.chat.tgz.md5 \
   && tar zxf rocket.chat.tgz \
   && rm rocket.chat.tgz rocket.chat.tgz.md5 \
