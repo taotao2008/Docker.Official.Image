@@ -79,8 +79,6 @@ RUN set -eux \
   | xargs -r apt-mark manual \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && npm cache clear --force \
-  && rm -rf /app/bundle/node_modules \
-  && rm -rf /app/bundle/package-lock.json \
   && chown -R rocketchat:rocketchat /app
 
 USER rocketchat
