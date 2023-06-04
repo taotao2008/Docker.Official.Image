@@ -54,7 +54,7 @@ WORKDIR /app
 
 RUN set -eux \
   && apt-get update \
-  && apt-get install -y --no-install-recommends fontconfig \
+  && apt-get install -y --no-install-recommends fontconfig Wget \
   && aptMark="$(apt-mark showmanual)" \
   && apt-get install -y --no-install-recommends g++ make python ca-certificates curl gnupg \
   && rm -rf /var/lib/apt/lists/* \
