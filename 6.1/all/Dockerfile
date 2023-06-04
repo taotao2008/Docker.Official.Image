@@ -23,6 +23,10 @@ RUN git clone https://github.com/taotao2008/wxai.git
 WORKDIR /opt/wxai
 RUN yarn
 RUN yarn turbo run translation-check
+WORKDIR /opt/wxai/apps/meteor
+RUN meteor reset
+RUN chown -Rh rocketchat .meteor/local
+WORKDIR /opt/wxai
 RUN yarn build:ci -- --directory /tmp/dist
 RUN cp -rf /tmp/dist/bundle /app/
 
