@@ -21,34 +21,34 @@ WORKDIR /opt/
 RUN apt-get install -y git
 RUN git clone https://github.com/taotao2008/wxai.git
 WORKDIR /opt/wxai
-WORKDIR /opt/wxai/apps/meteor
-RUN meteor --allow-superuser  reset
-RUN chown -Rh rocketchat .meteor/local
-RUN yarn
-RUN yarn turbo run translation-check
-WORKDIR /opt/wxai
-RUN yarn build:ci -- --directory /tmp/dist
-RUN cp -rf /tmp/dist/bundle /app/
-
-RUN aptMark="$(apt-mark showmanual)" \
-    && apt-get install -y --no-install-recommends g++ make python ca-certificates \
-    && cd /app/bundle/programs/server \
-    && npm install \
-    && apt-mark auto '.*' > /dev/null \
-    && apt-mark manual $aptMark > /dev/null \
-    && find /usr/local -type f -executable -exec ldd '{}' ';' \
-    | awk '/=>/ { print $(NF-1) }' \
-    | sort -u \
-    | xargs -r dpkg-query --search \
-    | cut -d: -f1 \
-    | sort -u \
-    | xargs -r apt-mark manual \
-    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-    && npm cache clear --force
-
-USER rocketchat
-
-VOLUME /app/uploads
+#WORKDIR /opt/wxai/apps/meteor
+#RUN meteor --allow-superuser  reset
+#RUN chown -Rh rocketchat .meteor/local
+#RUN yarn
+#RUN yarn turbo run translation-check
+#WORKDIR /opt/wxai
+#RUN yarn build:ci -- --directory /tmp/dist
+#RUN cp -rf /tmp/dist/bundle /app/
+#
+#RUN aptMark="$(apt-mark showmanual)" \
+#    && apt-get install -y --no-install-recommends g++ make python ca-certificates \
+#    && cd /app/bundle/programs/server \
+#    && npm install \
+#    && apt-mark auto '.*' > /dev/null \
+#    && apt-mark manual $aptMark > /dev/null \
+#    && find /usr/local -type f -executable -exec ldd '{}' ';' \
+#    | awk '/=>/ { print $(NF-1) }' \
+#    | sort -u \
+#    | xargs -r dpkg-query --search \
+#    | cut -d: -f1 \
+#    | sort -u \
+#    | xargs -r apt-mark manual \
+#    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+#    && npm cache clear --force
+#
+#USER rocketchat
+#
+#VOLUME /app/uploads
 
 WORKDIR /app/bundle
 
