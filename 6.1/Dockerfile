@@ -68,7 +68,6 @@ RUN set -eux \
   && rm bundle-6.1.8.tar.gz bundle-6.1.8.tar.gz.md5 \
   && cd bundle/programs/server \
   && npm install \
-  && npm install bcrypt \
   && apt-mark auto '.*' > /dev/null \
   && apt-mark manual $aptMark > /dev/null \
   && find /usr/local -type f -executable -exec ldd '{}' ';' \
@@ -80,9 +79,11 @@ RUN set -eux \
   | xargs -r apt-mark manual \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && npm cache clear --force \
+  && rm -rf /app/bundle/node_modules \
+  && rm -rf /app/bundle/package-lock.json \
   && chown -R rocketchat:rocketchat /app
 
-#USER rocketchat
+USER rocketchat
 
 WORKDIR /app/bundle
 
