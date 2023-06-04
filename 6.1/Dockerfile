@@ -97,6 +97,6 @@ ENV DEPLOY_METHOD=docker-official \
 EXPOSE 3000
 
 WORKDIR /app
-RUN set -eux && wget https://raw.githubusercontent.com/taotao2008/wxai-server-package/wali/docker-entrypoint.sh -O docker-entrypoint.sh
+RUN curl -fSL https://raw.githubusercontent.com/taotao2008/wxai-server-package/wali/docker-entrypoint.sh -o docker-entrypoint.sh
 RUN chmod +x /app/docker-entrypoint.sh
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
