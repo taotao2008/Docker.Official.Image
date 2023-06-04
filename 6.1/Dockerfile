@@ -98,5 +98,5 @@ EXPOSE 3000
 
 COPY ./docker-entrypoint.sh /
 RUN set -eux && chown -R rocketchat:rocketchat /docker-entrypoint.sh
-RUN set -eux && RUN chmod 755 /docker-entrypoint.sh
+RUN set -eux && chmod 755 /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
