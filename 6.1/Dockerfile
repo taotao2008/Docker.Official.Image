@@ -96,4 +96,6 @@ ENV DEPLOY_METHOD=docker-official \
 
 EXPOSE 3000
 
-CMD ["tail ", "/dev/null"]
+COPY ./docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
