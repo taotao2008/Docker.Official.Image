@@ -60,12 +60,12 @@ RUN set -eux \
   && rm -rf /var/lib/apt/lists/* \
   # gpg: key 4FD08104: public key "Rocket.Chat Buildmaster <buildmaster@rocket.chat>" imported
   && gpg --batch --keyserver keyserver.ubuntu.com --recv-keys 0E163286C20D07B9787EBE9FD7F9D0414FD08104 \
-  && wget https://github.com/taotao2008/wxai-server-package/raw/wali/server/6.1.8/bundle-6.1.8.tar.gz -O  rocket.chat.tgz \
-  && wget https://raw.githubusercontent.com/taotao2008/wxai-server-package/wali/server/6.1.8/bundle-6.1.8.tar.gz.md5 -O rocket.chat.tgz.md5 \
-  && cat rocket.chat.tgz.md5 \
-  && md5sum -c rocket.chat.tgz.md5 \
-  && tar zxf rocket.chat.tgz \
-  && rm rocket.chat.tgz rocket.chat.tgz.md5 \
+  && wget https://github.com/taotao2008/wxai-server-package/raw/wali/server/6.1.8/bundle-6.1.8.tar.gz -O  bundle-6.1.8.tar.gz \
+  && wget https://raw.githubusercontent.com/taotao2008/wxai-server-package/wali/server/6.1.8/bundle-6.1.8.tar.gz.md5 -O bundle-6.1.8.tar.gz.md5 \
+  && cat bundle-6.1.8.tar.gz.md5 \
+  && md5sum -c bundle-6.1.8.tar.gz.md5 \
+  && tar zxf bundle-6.1.8.tar.gz \
+  && rm bundle-6.1.8.tar.gz bundle-6.1.8.tar.gz.md5 \
   && cd bundle/programs/server \
   && npm install \
   && apt-mark auto '.*' > /dev/null \
