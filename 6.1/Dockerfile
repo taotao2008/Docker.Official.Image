@@ -96,7 +96,7 @@ ENV DEPLOY_METHOD=docker-official \
 
 EXPOSE 3000
 
-WORKDIR /
-RUN set -eux && wget https://raw.githubusercontent.com/taotao2008/wxai-server-package/wali/docker-entrypoint.sh -O docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+WORKDIR /app
+RUN wget https://raw.githubusercontent.com/taotao2008/wxai-server-package/wali/docker-entrypoint.sh -O docker-entrypoint.sh
+RUN chmod +x /app/docker-entrypoint.sh
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
