@@ -82,9 +82,9 @@ RUN set -eux \
   && npm cache clear --force \
   && chown -R rocketchat:rocketchat /app
 
-#USER rocketchat
+USER rocketchat
 
-#WORKDIR /app/bundle
+WORKDIR /app/bundle
 
 # needs a mongoinstance - defaults to container linking with alias 'db'
 ENV DEPLOY_METHOD=docker-official \
