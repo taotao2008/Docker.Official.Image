@@ -19,7 +19,7 @@ ADD --chown=rocketchat:rocketchat . /app
 RUN mkdir /tmp/dist
 WORKDIR /opt/
 RUN apt-get install -y git
-RUN git clone https://oauth2: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@github.com/taotao2008/wxai.git
+RUN git clone https://oauth2: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@github.com/taotao2008/wxai.git
 WORKDIR /opt/wxai
 RUN yarn
 RUN yarn turbo run translation-check
