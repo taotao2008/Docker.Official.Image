@@ -97,4 +97,4 @@ ENV DEPLOY_METHOD=docker-official \
 EXPOSE 3000
 
 COPY ./docker-entrypoint.sh /
-ENTRYPOINT ["sh docker-entrypoint.sh"]
+ENTRYPOINT ["bash docker-entrypoint.sh"]
