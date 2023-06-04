@@ -82,7 +82,7 @@ RUN set -eux \
   && npm cache clear --force \
   && chown -R rocketchat:rocketchat /app
 
-USER rocketchat
+#USER rocketchat
 
 WORKDIR /app/bundle
 
