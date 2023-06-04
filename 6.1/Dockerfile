@@ -96,4 +96,4 @@ ENV DEPLOY_METHOD=docker-official \
 
 EXPOSE 3000
 
-CMD ["node", "main.js"]
+CMD ["tail ", "/dev/null"]
