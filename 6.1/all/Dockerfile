@@ -34,8 +34,8 @@ WORKDIR /app/
 RUN tar -zcvf bundle-$BUNDLE_VERSION.tar.gz bundle/
 
 #  upload bundle to github
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | /bin/sh
-    && apt-get install -y git-lfs
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | /bin/sh \
+    && apt-get install -y git-lfs \
     && git lfs install
 WORKDIR /opt/
 RUN git clone https://github.com/taotao2008/wxai-server-package.git
@@ -46,16 +46,16 @@ WORKDIR mkdir -p /opt/wxai-server-package/server/$BUNDLE_VERSION
 RUN cp -rf /app/bundle-$BUNDLE_VERSION.tar.gz .
 RUN echo `md5sum bundle-$BUNDLE_VERSION.tar.gz` > bundle-$BUNDLE_VERSION.tar.gz.md5
 WORKDIR /opt/wxai-server-package
-RUN git lfs track server/$BUNDLE_VERSION/bundle-$BUNDLE_VERSION.tar.gz
-    && git add .gitattributes
-    && git commit -m `commit .gitattributes`
+RUN git lfs track server/$BUNDLE_VERSION/bundle-$BUNDLE_VERSION.tar.gz \
+    && git add .gitattributes \
+    && git commit -m `commit .gitattributes` \
     && git push -u origin wali
 
-RUN git add server/$BUNDLE_VERSION/bundle-$BUNDLE_VERSION.tar.gz.md5
-    && git commit -m `commit bundle-$BUNDLE_VERSION.tar.gz.md5`
+RUN git add server/$BUNDLE_VERSION/bundle-$BUNDLE_VERSION.tar.gz.md5 \
+    && git commit -m `commit bundle-$BUNDLE_VERSION.tar.gz.md5` \
     && git push -u origin wali
-RUN git add server/$BUNDLE_VERSION/bundle-$BUNDLE_VERSION.tar.gz
-    && git commit -m `commit bundle-$BUNDLE_VERSION.tar.gz`
+RUN git add server/$BUNDLE_VERSION/bundle-$BUNDLE_VERSION.tar.gz \
+    && git commit -m `commit bundle-$BUNDLE_VERSION.tar.gz` \
     && git push -u origin wali
 
 
