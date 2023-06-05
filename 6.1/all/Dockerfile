@@ -15,7 +15,7 @@ RUN export METEOR_NO_RELEASE_CHECK=true \
 
 # install node npm yarn
 WORKDIR /opt/
-RUN wget https://nodejs.org/dist/v14.21.2/node-v14.21.2-linux-x64.tar.xz & tar -xvf node-v14.21.2-linux-x64.tar.xz -C /usr/local/
+RUN wget https://nodejs.org/dist/v14.21.2/node-v14.21.2-linux-x64.tar.xz && tar -xvf node-v14.21.2-linux-x64.tar.xz -C /usr/local/
 RUN ln -s /opt/node-v14.21.2-linux-x64/bin/node /usr/local/bin/node \
     && ln -s /opt/node-v14.21.2-linux-x64/bin/npm /usr/local/bin/npm
 RUN npm install --global yarn && ln -s /opt/node-v14.21.2-linux-x64/bin/yarn /usr/local/bin/yarn
@@ -65,7 +65,7 @@ ENV DEPLOY_METHOD=docker \
     MONGO_URL=mongodb://mongo:27017/rocketchat \
     HOME=/tmp \
     PORT=3000 \
-    ROOT_URL=http://0.0.0.0:3000 \
+    ROOT_URL=https://chat.aizen.chat:3000 \
     Accounts_AvatarStorePath=/app/uploads
 
 EXPOSE 3000
