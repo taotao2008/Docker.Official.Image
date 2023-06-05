@@ -24,7 +24,7 @@ RUN npm install --global yarn && ln -s /usr/local/node-v14.21.2-linux-x64/bin/ya
 #  build bundle for wxai
 RUN mkdir /tmp/dist
 WORKDIR /opt/
-RUN git clone https://oauth2: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@github.com/taotao2008/wxai.git
+RUN git clone https://oauth2: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@github.com/taotao2008/wxai.git
 WORKDIR /opt/wxai
 RUN yarn
 RUN yarn turbo run translation-check
