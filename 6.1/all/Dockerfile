@@ -17,9 +17,9 @@ RUN export METEOR_NO_RELEASE_CHECK=true \
 # install node npm yarn
 WORKDIR /opt/
 RUN wget https://nodejs.org/dist/v14.21.2/node-v14.21.2-linux-x64.tar.xz && tar -xvf node-v14.21.2-linux-x64.tar.xz -C /usr/local/
-RUN ln -s /opt/node-v14.21.2-linux-x64/bin/node /usr/local/bin/node \
-    && ln -s /opt/node-v14.21.2-linux-x64/bin/npm /usr/local/bin/npm
-RUN npm install --global yarn && ln -s /opt/node-v14.21.2-linux-x64/bin/yarn /usr/local/bin/yarn
+RUN ln -s /usr/local/node-v14.21.2-linux-x64/bin/node /usr/local/bin/node \
+    && ln -s /usr/local/node-v14.21.2-linux-x64/bin/npm /usr/local/bin/npm
+RUN npm install --global yarn && ln -s /usr/local/node-v14.21.2-linux-x64/bin/yarn /usr/local/bin/yarn
 
 #  build bundle for wxai
 RUN mkdir /tmp/dist
