@@ -11,7 +11,8 @@ RUN curl https://install.meteor.com | sed s/--progress-bar/-sL/g | /bin/sh
 RUN export METEOR_NO_RELEASE_CHECK=true \
     && export METEOR_SYMLINK_TARGET=/root/.meteor/meteor \
     && export METEOR_TOOL_DIRECTORY=/root/.meteor \
-    && export METEOR_ALLOW_SUPERUSER=true
+    && export METEOR_ALLOW_SUPERUSER=true \
+    && export PATH=$PATH:/usr/local/bin
 
 # install node npm yarn
 WORKDIR /opt/
